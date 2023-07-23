@@ -1,0 +1,26 @@
+
+you have an "employees" table with columns "employee_id," "first_name," "last_name," and "salary." 
+Write an SQL query to display employee names along with a column "salary_category," which categorizes employees into "Low," "Medium," or "High" based on their salary 
+
+employee_id	first_name	last_name	salary
+1	            John	Smith	28000
+2	            Jane	Doe	45000
+3	            Michael	Johnson	65000
+4	            Sarah	Williams	52000
+5	          Robert	Brown	18000
+
+
+SELECT
+  employee_id,
+  first_name,
+  last_name,
+  salary,
+  CASE
+    WHEN salary <= 30000 THEN 'Low'
+    WHEN salary > 30000 AND salary <= 60000 THEN 'Medium'
+    ELSE 'High'
+  END AS salary_category
+FROM
+  employees;
+
+
